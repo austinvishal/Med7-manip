@@ -1,0 +1,12 @@
+Checks: "
+cert-*,
+clang-analyser-*,
+cppcoreguidelines-*,
+-cppcoreguidelines-pro-type-union-access,
+hicpp-*,
+modernize-*,
+performance-*,
+portability-*,
+readability-*,
+"
+FormatStyle: file
