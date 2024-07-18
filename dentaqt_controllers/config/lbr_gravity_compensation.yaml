@@ -1,0 +1,5 @@
+lbr:
+  lbr_gravity_compensation_controller:
+    ros__parameters:
+      robot_state_publisher_node_name: "/lbr/robot_state_publisher"
+      robot_description_parameter_name: "robot_description"

@@ -1,0 +1,11 @@
+<library path="dentaqt_ign_hardware_plugins">
+  <class
+    name="dentaqt_ign_ros2_control/DentaqtIgnitionSystem"
+    type="dentaqt_ign_ros2_control::DentaqtIgnitionSystem"
+    base_class_type="dentaqt_ign_ros2_control::DentaqtIgnitionSystemInterface">
+    <description>
+      Igntion ROS2 control system modified to include force-torque sensing
+      and correct joint torque computations
+    </description>
+  </class>
+</library>

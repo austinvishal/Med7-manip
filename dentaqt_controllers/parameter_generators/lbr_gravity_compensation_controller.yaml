@@ -1,0 +1,16 @@
+lbr_gravity_compensation_controller:
+  # URDF Parameter Client Settings
+  robot_state_publisher_node_name:
+    {
+      type: string,
+      description: "String containing name of the robot state publisher node publishing robot_description",
+      read_only: true,
+      default_value: "robot_state_publisher",
+    }
+  robot_description_parameter_name:
+    {
+      type: string,
+      description: "Name of the parameter to which URDF robot description is passed",
+      read_only: true,
+      default_value: "robot_description",
+    }

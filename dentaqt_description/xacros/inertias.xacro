@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+
+<!-- Copyright 2024 Manguil Robotics Pvt. Ltd.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+<!--
+Utility functions for computing moments of inertia for solids
+as listed in https://en.wikipedia.org/wiki/List_of_moments_of_inertia
+These utility functions are simply parametrized macro for generating
+a <inertial></inertial> block with dynamically computed moment of inertia for a
+given shape and its associated parameters along with a block parameter origin.
+The inertial block will contain the mass of the link in kilograms,
+a 3x3 rotational inertia matrix and an origin to specify the center of gravity
+and the inertial reference frame relative to the link's reference frame
+See documentation in,
+- https://docs.ros.org/en/humble/Tutorials/Intermediate/URDF/Adding-Physical-and-Collision-Properties-to-a-URDF-Model.html#inertia
+- https://docs.ros.org/en/humble/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.html
+-->
+
+<!--
+    Parametrized macro for a solid sphere given the parameters
+    mass, length, radius and a block parameter origin
+-->
+<xacro:macro name="solid_sphere_inertial" params="mass radius *origin">
+  <inertial>
+  <mass value="${mass}" />
+  <inertia ixx="${ 0.4 * mass * radius * radius }" ixy="0.0" ixz="0.0"
+           iyy="${ 0.4 * mass * radius * radius }" iyz="0.0"
+           izz="${ 0.4 * mass * radius * radius }" />
+  <xacro:insert_block name="origin" />
+  </inertial>
+</xacro:macro>
+
+<!--
+    Parametrized macro for a solid box given the parameters
+    mass,  x (length), y (width) and z (depth) and a block parameter origin
+-->
+<xacro:macro name="solid_box_inertial" params="mass x y z *origin">
+  <inertial>
+  <mass value="${mass}" />
+  <inertia ixx="${ 0.083333333 * mass * (y*y + z*z) }" ixy="0.0" ixz="0.0"
+           iyy="${ 0.083333333 * mass * (x*x + z*z) }" iyz="0.0"
+           izz="${ 0.083333333 * mass * (x*x + y*y) }" />
+  <xacro:insert_block name="origin" />
+  </inertial>
+</xacro:macro>
+
+<!--
+    Parametrized macro for a solid cylinder given the parameters
+    mass, radius and a block parameter origin
+-->
+<xacro:macro name="solid_cylinder_inertial" params="mass length radius *origin">
+  <inertial>
+  <mass value="${mass}" />
+  <inertia ixx="${ 0.083333333 * mass * ( (3*radius*radius) + (length*length) ) }" ixy="0.0" ixz="0.0"
+           iyy="${ 0.083333333 * mass * ( (3*radius*radius) + (length*length) ) }" iyz="0.0"
+           izz="${ 0.5 * mass * radius * radius }" />
+  <xacro:insert_block name="origin" />
+  </inertial>
+</xacro:macro>
+
+<!--
+    Parametrized macro for a default inertial block
+-->
+<xacro:macro name="default_inertial" params="mass ixx ixy ixz iyy iyz izz *origin">
+  <inertial>
+  <mass value="${mass}" />
+  <inertia ixx="${ixx}" ixy="${ixy}" ixz="${ixz}"
+           iyy="${iyy}" iyz="${iyz}"
+           izz="${izz}" />
+  <xacro:insert_block name="origin" />
+  </inertial>
+</xacro:macro>
+
+</robot>
