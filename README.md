@@ -1,5 +1,7 @@
 ## Gravity Compensation - ROS 2 Control with Modern Gazebo
 
+Disclaimer: This repository is simply a snapshot from Dentaqt project for demonstration purpose.
+
 ## Installing Dependencies - Manual Installation
 
 We will be installing and running the software on a **Ubuntu 22.04 (Jammy Jellyfish)** distribution of Linux. Currently support for Windows or Mac is not available.
