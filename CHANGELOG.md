@@ -15,12 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add modified `ign_ros2_control` package with Igntion ROS2 control system modified to include force-torque sensing and correct joint torque computations  
 - Import LBR Med7 robot model specific to dentaqt project using `dentaqt_ign_ros2_control` plugin to load custom modified Igntiion-ROS2 bridge for simulation 
 - Add  dentaqt controllers implementing gravity compensation and cartesian impedance control 
-  - Add torque forwarder ROS 2 controller
-  - Add dentaqt_bringup mixin
-  - Add Gravity compensation ROS 2 controller
-  - Add dentaqt_msgs package containing cartesian impedance controller messages
-  - Add Cartesian Impedance ROS 2 Controller
-  - Add End Effector Control Handle ROS 2 Controller
+
 
 
 ### Removed
