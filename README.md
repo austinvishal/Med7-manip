@@ -1,6 +1,6 @@
 ## Gravity Compensation - ROS 2 Control with Modern Gazebo
 
-Disclaimer: This repository is simply a snapshot from Dentaqt project for demonstration purpose.
+Disclaimer: This repository is simply a snapshot from Dentaqt project for demonstration purpose. As the project ower, I am allowed to share this part of the code without any liabilities.
 
 ## Installing Dependencies - Manual Installation
 
